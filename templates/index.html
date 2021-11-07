@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИМТ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h1>ИМТ</h1>
+        <p>И́ндекс ма́ссы те́ла (англ. body mass index (BMI), ИМТ)* — величина, позволяющая оценить степень соответствия массы человека и его роста и тем самым косвенно судить о том, является ли масса недостаточной, нормальной или избыточной. Важен при определении показаний для необходимости лечения.</p>
+        <div class="alert alert-primary alert-bmi" role="alert">
+            Выраженный дефицит массы тела
+          </div>
+
+        <form class="bmi">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Имя</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="age" class="form-label">Возраст</label>
+              <input type="number" class="form-control" id="age">
+            </div>
+            <div class="mb-3">
+                <label for="height" class="form-label">Рост (в метрах, через точку)</label>
+                <input type="number" class="form-control" id="height">
+              </div>
+              <div class="mb-3">
+                <label for="weight" class="form-label">Вес (в кг, через точку)</label>
+                <input type="number" class="form-control" id="weight">
+              </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Сохранить данные</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Рассчитать</button>
+          </form>
+
+        
+    </div>
+
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>
