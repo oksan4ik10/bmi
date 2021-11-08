@@ -2,7 +2,7 @@
 #основная программа
 user_height = 1.60
 user_weight = 77.8
-name = 'Oksana'
+name = 'Oksana Kalinina'
 age = 28
 
 results = {}
