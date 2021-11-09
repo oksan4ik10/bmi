@@ -3,29 +3,30 @@
         <h1>ИМТ</h1>
         <p>И́ндекс ма́ссы те́ла (англ. body mass index (BMI), ИМТ)* — величина, позволяющая оценить степень соответствия массы человека и его роста и тем самым косвенно судить о том, является ли масса недостаточной, нормальной или избыточной. Важен при определении показаний для необходимости лечения.</p>
         <div class="alert alert-primary alert-bmi {{display}}" role="alert">
-            Выраженный дефицит массы тела
+            {{result}}
           </div>
 
-        <form class="bmi" action="/" method="post">
+
+        <form class="bmi" action="/home" method="post">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Имя</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label for="username" class="form-label">Имя</label>
+              <input type="text" class="form-control" name="username" id="username" aria-describedby="username">
             </div>
             <div class="mb-3">
               <label for="age" class="form-label">Возраст</label>
-              <input type="number" class="form-control" id="age">
+              <input type="number" class="form-control" name="age" id="age">
             </div>
             <div class="mb-3">
                 <label for="height" class="form-label">Рост (в метрах, через точку)</label>
-                <input type="number" class="form-control" id="height">
+                <input type="text" class="form-control" name="height" id="height">
               </div>
               <div class="mb-3">
                 <label for="weight" class="form-label">Вес (в кг, через точку)</label>
-                <input type="number" class="form-control" id="weight">
+                <input type="text" class="form-control" name="weight" id="weight">
               </div>
             <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Сохранить данные</label>
+              <input type="checkbox" class="form-check-input" name="save" id="save" checked>
+              <label class="form-check-label" for="save">Сохранить данные</label>
             </div>
             <button type="submit" class="btn btn-primary">Рассчитать</button>
           </form>
