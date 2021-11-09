@@ -15,31 +15,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td>@twitter</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-              </tr>
+              {% for i in range(0,count) %}
+                  <tr>
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{tables[i][0]}}</td>
+                    <td>{{tables[i][1]}}</td>
+                    <td>{{tables[i][2]}}</td>
+                    <td>{{tables[i][3]}}</td>
+                    <td>{{tables[i][4]}}</td>
+                    
+                  </tr> 
+              {% endfor %}
+     
+        
             </tbody>
           </table>
    </div>

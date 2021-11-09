@@ -31,15 +31,22 @@ def bmi(user_height, user_weight, name, age, save = False) -> str:
             for i in results:
                 item = str(i)
                 file.write(item)
-                file.write(' ')
+                file.write('|')
             file.write('\n')
     
     return res
 
-# print(bmi(1.64, 78, 'Oksana', 27))
+# print(bmi(1.64, 78, 'Oksana', 27, True))
 
-with open('file.txt', 'r') as file:
-    content = file.readlines()
-    for i in content:
-        print(i.strip())
+def print_table():
+    with open('file.txt', 'r') as file:
+        content = file.readlines()
+        result = []
+        for i in content:
+            res = i.strip().split('|')
+            del res[-1]
+            result.append(res)
+    return result
+
+
 

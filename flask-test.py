@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, escape
-from main import bmi
+from main import bmi, print_table
 
 app = Flask(__name__)
 
@@ -26,6 +26,10 @@ def test():
 
     return render_template('index.html', the_title='ИМТ результат', display = '', result = result)
     
+@app.route('/result')
+def print_result():
+    tables = print_table()
+    return render_template('results.html', the_title='Результаты', tables = tables, count = len(tables))
 
 
 if __name__=='__main__':
