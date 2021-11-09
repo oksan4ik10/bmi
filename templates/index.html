@@ -6,6 +6,10 @@
             {{result}}
           </div>
 
+          <div class="alert alert-danger alert-bmi {{done}}" role="alert">
+            {{result}}
+          </div>
+
 
         <form class="bmi" action="/home" method="post">
             <div class="mb-3">
@@ -30,4 +34,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Рассчитать</button>
           </form>
+
+          <form action="/results">
+            <button type="submit" class="btn btn-primary">Рассчитать</button>
+          </form>
+
 {% endblock %}
