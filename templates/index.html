@@ -1,17 +1,26 @@
 {% extends 'base.html' %}
 {% block body %}
+
         <h1>ИМТ</h1>
         <p>И́ндекс ма́ссы те́ла (англ. body mass index (BMI), ИМТ)* — величина, позволяющая оценить степень соответствия массы человека и его роста и тем самым косвенно судить о том, является ли масса недостаточной, нормальной или избыточной. Важен при определении показаний для необходимости лечения.</p>
-        <div class="alert alert-primary alert-bmi {{display}}" role="alert">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for cat, message in messages %}
+              <div class="alert {{cat}}  alert-bmi" role="alert">
+                {{message}}
+              </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <!-- <div class="alert alert-primary alert-bmi {{display}}" role="alert">
             {{result}}
-          </div>
+          </div> -->
 
-          <div class="alert alert-danger alert-bmi {{done}}" role="alert">
-            {{result}}
-          </div>
+         
 
 
-        <form class="bmi" action="/home" method="post">
+        <div class="union">
+          <form class="bmi" action="/home" method="post">
             <div class="mb-3">
               <label for="username" class="form-label">Имя</label>
               <input type="text" class="form-control" name="username" id="username" aria-describedby="username">
@@ -32,11 +41,21 @@
               <input type="checkbox" class="form-check-input" name="save" id="save" checked>
               <label class="form-check-label" for="save">Сохранить данные</label>
             </div>
-            <button type="submit" class="btn btn-primary">Рассчитать</button>
+            <div class="btns">
+              <button type="submit" class="btn btn-primary">Рассчитать</button>
+    
+
+            </div>
+
           </form>
 
-          <form action="/results">
-            <button type="submit" class="btn btn-primary">Рассчитать</button>
+          <form action="/results" class="result">
+            <button type="submit" class="btn btn-success">Результаты</button>
           </form>
+
+
+        </div>
+        
+
 
 {% endblock %}

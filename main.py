@@ -3,9 +3,8 @@ def bmi(user_height, user_weight, name, age, save = False) -> str:
 
     bmi = round(user_weight/(user_height**2),2)
 
-    print('Ваш ИМТ составляет: ', bmi)
     if bmi == 0.0:
-        return 'Данные введены не корректно'
+        return False
     if bmi <=16:
         res = ('Выраженный дефицит массы тела')
     elif bmi <=18.5:
@@ -24,7 +23,6 @@ def bmi(user_height, user_weight, name, age, save = False) -> str:
 
     #запись и чтение из файла
     results = [name,age, user_height, user_weight, bmi, res]
-    print (results)
 
     if save:
         with open('./file.txt','a') as file:
@@ -34,7 +32,7 @@ def bmi(user_height, user_weight, name, age, save = False) -> str:
                 file.write('|')
             file.write('\n')
     
-    return res
+    return ('ИМТ: '+str(bmi)+'. '+res)
 
 # print(bmi(1.64, 78, 'Oksana', 27, True))
 
