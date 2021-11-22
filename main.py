@@ -1,5 +1,4 @@
 def bmi(user_height, user_weight, name, age, save = False) -> str:
-    results = {}
 
     bmi = round(user_weight/(user_height**2),2)
 
@@ -21,18 +20,9 @@ def bmi(user_height, user_weight, name, age, save = False) -> str:
         res = ('Ожирение 3 степени')
 
 
-    #запись и чтение из файла
-    results = [name,age, user_height, user_weight, bmi, res]
 
-    if save:
-        with open('./file.txt','a') as file:
-            for i in results:
-                item = str(i)
-                file.write(item)
-                file.write('|')
-            file.write('\n')
     
-    return ('ИМТ: '+str(bmi)+'. '+res)
+    return ['ИМТ: '+str(bmi)+'. '+res, bmi]
 
 # print(bmi(1.64, 78, 'Oksana', 27, True))
 

@@ -1,11 +1,28 @@
+from os import name
 from flask import Flask, render_template, request, flash, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+
 from main import bmi, print_table
 
 app = Flask(__name__)
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/' #чтобы работал flash
 
+#работа с БД в mySQL
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost/bmi'
+db = SQLAlchemy(app)
 
+class ResultSave(db.Model):
+    __tablename__ = 'results'
+    id = db.Column(db.Integer(), primary_key=True, index=True)
+    name = db.Column(db.String(255), nullable=False)
+    age = db.Column(db.Integer(), nullable=False)
+    height = db.Column(db.Float(), nullable=False)
+    weight = db.Column(db.Float(), nullable=False)
+    bmi = db.Column(db.Float(), nullable=False)
+    # def __repr__(self):
+	#     return "<{}:{}>".format(self.id,  self.title[:10])
+db.create_all()
 
 @app.route('/')
 def hi()->'html':
@@ -49,7 +66,11 @@ def test():
     if not result:
         flash('Данные введены некорректно', 'alert-danger')
     else:
-        flash(result, 'alert-primary')
+        flash(result[0], 'alert-primary')
+        user = ResultSave(name = user, age = age , height = height, weight = weight, bmi = result[1])
+        db.session.add(user)
+        db.session.commit()
+
 
 
     return redirect(url_for('hi'))
@@ -57,8 +78,9 @@ def test():
     
 @app.route('/results')
 def print_result():
-    tables = print_table() #получаем результат сохраненных данных из файла
-    return render_template('results.html', the_title='Результаты', tables = tables, count = len(tables))
+    #получаем данные из БД
+    users =  ResultSave.query.all()
+    return render_template('results.html', the_title='Результаты', tables = users, count = len(users))
 
 
 if __name__=='__main__':
